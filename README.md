@@ -31,10 +31,7 @@ Typical minikube setup: enable the `ingress` addon, and run `minikube tunnel` if
 kubectl apply -f k8s/
 ```
 
-NodePort services:
 
-- Vote: port **30000**
-- Results: port **30001**
 
 With Ingress (`ingressClassName: nginx`):
 
