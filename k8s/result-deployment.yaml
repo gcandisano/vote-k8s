@@ -15,6 +15,12 @@ spec:
       containers:
         - name: result
           image: dockersamples/examplevotingapp_result
+          envFrom:
+            - secretRef:
+                name: db-secret
+          env:
+            - name: POSTGRES_HOST
+              value: db
           ports:
             - containerPort: 80
           readinessProbe:

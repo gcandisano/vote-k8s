@@ -15,3 +15,9 @@ spec:
       containers:
         - name: worker
           image: dockersamples/examplevotingapp_worker
+          envFrom:
+            - secretRef:
+                name: db-secret
+          env:
+            - name: POSTGRES_HOST
+              value: db
