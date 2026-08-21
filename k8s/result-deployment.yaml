@@ -17,6 +17,17 @@ spec:
           image: dockersamples/examplevotingapp_result
           ports:
             - containerPort: 80
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 80
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 80
+            periodSeconds: 20
+            initialDelaySeconds: 10
 ---
 apiVersion: v1
 kind: Service
